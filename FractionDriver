@@ -1,0 +1,29 @@
+public class FractionDriver{
+    
+    
+    public static void main (String[]args){
+        System.out.println("-----------------------------------");
+       
+      
+        Fraction f2= new Fraction(13,3);
+          Fraction f1= new Fraction(25,3);
+        
+        
+        System.out.println("Before"+" "+f2 +" " +f1);
+        
+      
+      f1.reduce(f2.getNum(),f2.getDenom());
+       
+       System.out.println(f1.GCF(252,105));
+         
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
