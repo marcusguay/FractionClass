@@ -1,0 +1,147 @@
+class Fraction{
+    
+    //instance variables / fields
+    private int num,denom;
+    
+    
+    public Fraction(){
+       this.num=1;
+       this.denom=2;
+       
+  }
+       
+     public Fraction(int num, int denom){
+        this.num=num;
+        if(denom==0){
+         System.out.println("0 in denom");
+         this.denom=1;
+    }
+    else{ this.denom=denom; }
+}
+
+public void reduce(int num, int denom){
+   
+    for(int i=1; i <= Math.max(num,denom); i++){
+    if(num%i==0 && denom%i==0){
+    if( i <= num && i <= denom){
+    this.num=(num/i);
+    this.denom=(denom/i);
+}
+}
+}
+    
+  
+   
+}
+
+
+
+
+
+public Fraction(String str){
+
+
+
+}
+
+
+
+
+public Fraction(Fraction f){
+    this.num=f.num;
+    this.denom=f.denom;
+    
+
+
+
+}
+
+
+public int getNum(){
+    
+    return this.num;
+    }
+
+public int getDenom(){
+    
+    return this.denom;
+    }
+
+public double toDouble(){
+        
+        return (double) num/denom;
+    }
+    
+    public String toString(){
+return this.num + "/" + this.denom;
+}
+
+public void setNum(int num){
+
+this.num=num;
+    }
+
+public void setDenom(int denom){
+    if(denom!=0) this.denom=denom;
+    
+}
+
+public static Fraction multiply(Fraction a, Fraction b){
+int num=a.num * b.num;
+int denom=a.denom * b.denom;
+Fraction newFraction= new Fraction(num,denom);
+
+newFraction.reduce(newFraction.num,newFraction.denom);
+return newFraction;
+}
+public static Fraction divide(Fraction a, Fraction b){
+int num=a.denom* b.num;
+int denom=a.num * b.denom;
+Fraction newFraction= new Fraction(num,denom);
+
+newFraction.reduce(newFraction.num,newFraction.denom);
+return newFraction;
+}
+
+public static Fraction add(Fraction a, Fraction b){
+int num=(a.num*b.denom)+(b.num*a.denom);
+int denom=a.num * b.denom;
+Fraction newFraction= new Fraction(num,denom);
+
+newFraction.reduce(newFraction.num,newFraction.denom);
+return newFraction;
+}
+
+
+public static Fraction subtract(Fraction a, Fraction b){
+int num=(a.num*b.denom)-(b.num*a.denom);
+int denom=a.num * b.denom;
+Fraction newFraction= new Fraction(num,denom);
+
+newFraction.reduce(newFraction.num,newFraction.denom);
+return newFraction;
+}
+
+
+public int GCF(int a,int b){
+ int larger=Math.max(a,b);
+ int smaller=Math.min(a,b);
+ int remainder=0;
+    while(larger-smaller>0){
+     
+        while(larger > smaller){
+         
+         remainder=larger-smaller;
+     larger=larger-smaller;
+         
+          System.out.println(remainder +" " + larger+ " " + smaller);
+     
+        }
+        larger=smaller;
+        smaller=remainder;
+        System.out.println(remainder +" " + larger+ " " + smaller);
+    }
+    
+return remainder;
+}
+}
